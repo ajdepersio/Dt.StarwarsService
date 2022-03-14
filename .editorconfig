@@ -1,0 +1,250 @@
+# NOTE: Requires **VS2019 16.3** or later
+
+# roslynator
+# Description:  
+
+# Code files
+[*.{cs,vb}]
+
+
+dotnet_diagnostic.RCS0002.severity = warning
+
+dotnet_diagnostic.RCS0003.severity = warning
+
+dotnet_diagnostic.RCS0005.severity = warning
+
+dotnet_diagnostic.RCS0006.severity = warning
+
+dotnet_diagnostic.RCS0008.severity = warning
+
+dotnet_diagnostic.RCS0009.severity = warning
+
+dotnet_diagnostic.RCS0010.severity = warning
+
+dotnet_diagnostic.RCS0011i.severity = warning
+
+dotnet_diagnostic.RCS0015i.severity = warning
+
+dotnet_diagnostic.RCS0016.severity = warning
+
+dotnet_diagnostic.RCS0021.severity = warning
+
+dotnet_diagnostic.RCS0022.severity = warning
+
+dotnet_diagnostic.RCS0023.severity = warning
+
+dotnet_diagnostic.RCS0024.severity = warning
+
+dotnet_diagnostic.RCS0025.severity = warning
+
+dotnet_diagnostic.RCS0027.severity = warning
+
+dotnet_diagnostic.RCS0028.severity = warning
+
+dotnet_diagnostic.RCS0030.severity = warning
+
+dotnet_diagnostic.RCS0031.severity = warning
+
+dotnet_diagnostic.RCS0032i.severity = warning
+
+dotnet_diagnostic.RCS0033.severity = warning
+
+dotnet_diagnostic.RCS0034.severity = warning
+
+dotnet_diagnostic.RCS0036.severity = warning
+
+dotnet_diagnostic.RCS0038.severity = warning
+
+dotnet_diagnostic.RCS0039.severity = warning
+
+dotnet_diagnostic.RCS0041.severity = warning
+
+dotnet_diagnostic.RCS0042.severity = warning
+
+dotnet_diagnostic.RCS0043.severity = warning
+
+dotnet_diagnostic.RCS0045.severity = none
+
+dotnet_diagnostic.RCS0046.severity = warning
+
+dotnet_diagnostic.RCS0050.severity = warning
+
+dotnet_diagnostic.RCS0051.severity = warning
+
+dotnet_diagnostic.RCS0052.severity = warning
+
+dotnet_diagnostic.RCS0054.severity = warning
+
+dotnet_diagnostic.RCS0055.severity = warning
+
+roslynator.max_line_length = 180
+dotnet_diagnostic.RCS0056.severity = none
+
+dotnet_diagnostic.RCS1001.severity = warning
+
+dotnet_diagnostic.RCS1003.severity = warning
+
+dotnet_diagnostic.RCS1005.severity = none
+
+dotnet_diagnostic.RCS1006.severity = suggestion
+
+dotnet_diagnostic.RCS1007.severity = warning
+
+dotnet_diagnostic.RCS1010.severity = warning
+
+dotnet_diagnostic.RCS1013.severity = warning
+
+dotnet_diagnostic.RCS1014.severity = warning
+
+dotnet_diagnostic.RCS1016a.severity = warning
+
+dotnet_diagnostic.RCS1016b.severity = warning
+
+dotnet_diagnostic.RCS1018.severity = warning
+
+dotnet_diagnostic.RCS1019.severity = suggestion
+
+dotnet_diagnostic.RCS1031.severity = suggestion
+
+dotnet_diagnostic.RCS1034.severity = suggestion
+
+dotnet_diagnostic.RCS1035.severity = suggestion
+
+dotnet_diagnostic.RCS1036a.severity = suggestion
+
+dotnet_diagnostic.RCS1039.severity = suggestion
+
+dotnet_diagnostic.RCS1040.severity = suggestion
+
+dotnet_diagnostic.RCS1042.severity = suggestion
+
+dotnet_diagnostic.RCS1043.severity = suggestion
+
+dotnet_diagnostic.RCS1045.severity = suggestion
+
+dotnet_diagnostic.RCS1045a.severity = suggestion
+
+dotnet_diagnostic.RCS1047.severity = warning
+
+dotnet_diagnostic.RCS1050.severity = suggestion
+
+dotnet_diagnostic.RCS1051.severity = warning
+
+dotnet_diagnostic.RCS1052.severity = warning
+
+dotnet_diagnostic.RCS1055.severity = warning
+
+dotnet_diagnostic.RCS1056.severity = warning
+
+dotnet_diagnostic.RCS1060.severity = warning
+
+dotnet_diagnostic.RCS1061.severity = suggestion
+
+dotnet_diagnostic.RCS1063.severity = warning
+
+dotnet_diagnostic.RCS1064.severity = warning
+
+dotnet_diagnostic.RCS1066.severity = suggestion
+
+dotnet_diagnostic.RCS1069.severity = suggestion
+
+dotnet_diagnostic.RCS1070.severity = suggestion
+
+dotnet_diagnostic.RCS1071.severity = suggestion
+
+dotnet_diagnostic.RCS1074.severity = suggestion
+
+dotnet_diagnostic.RCS1078i.severity = warning
+
+dotnet_diagnostic.RCS1081.severity = warning
+
+dotnet_diagnostic.RCS1091.severity = warning
+
+dotnet_diagnostic.RCS1093.severity = warning
+
+dotnet_diagnostic.RCS1094.severity = warning
+
+dotnet_diagnostic.RCS1101.severity = warning
+
+dotnet_diagnostic.RCS1118.severity = none
+
+dotnet_diagnostic.RCS1124.severity = none
+
+dotnet_diagnostic.RCS1126.severity = warning
+
+dotnet_diagnostic.RCS1129.severity = suggestion
+
+dotnet_diagnostic.RCS1133.severity = suggestion
+
+dotnet_diagnostic.RCS1134.severity = suggestion
+
+dotnet_diagnostic.RCS1136.severity = suggestion
+
+dotnet_diagnostic.RCS1140.severity = warning
+
+dotnet_diagnostic.RCS1141.severity = warning
+
+dotnet_diagnostic.RCS1142.severity = warning
+
+dotnet_diagnostic.RCS1143.severity = suggestion
+
+dotnet_diagnostic.RCS1145.severity = suggestion
+
+dotnet_diagnostic.RCS1151.severity = suggestion
+
+dotnet_diagnostic.RCS1161.severity = none
+
+dotnet_diagnostic.RCS1162.severity = warning
+
+dotnet_diagnostic.RCS1163.severity = warning
+
+dotnet_diagnostic.RCS1164.severity = warning
+
+dotnet_diagnostic.RCS1165.severity = suggestion
+
+dotnet_diagnostic.RCS1168.severity = warning
+
+dotnet_diagnostic.RCS1177.severity = suggestion
+
+dotnet_diagnostic.RCS1181.severity = suggestion
+
+dotnet_diagnostic.RCS1182.severity = suggestion
+
+dotnet_diagnostic.RCS1186.severity = suggestion
+
+dotnet_diagnostic.RCS1188.severity = suggestion
+
+dotnet_diagnostic.RCS1189.severity = suggestion
+
+dotnet_diagnostic.RCS1191.severity = none
+
+dotnet_diagnostic.RCS1192.severity = none
+
+dotnet_diagnostic.RCS1201.severity = suggestion
+
+dotnet_diagnostic.RCS1202.severity = warning
+
+dotnet_diagnostic.RCS1205.severity = warning
+
+dotnet_diagnostic.RCS1207i.severity = warning
+
+dotnet_diagnostic.RCS1209.severity = warning
+
+dotnet_diagnostic.RCS1211.severity = suggestion
+
+dotnet_diagnostic.RCS1217.severity = none
+
+dotnet_diagnostic.RCS1226.severity = none
+
+dotnet_diagnostic.RCS1228.severity = suggestion
+
+dotnet_diagnostic.RCS1239.severity = none
+
+dotnet_diagnostic.RCS1241.severity = none
+
+dotnet_diagnostic.RCS1244.severity = suggestion
+
+dotnet_diagnostic.RCS1248i.severity = warning
+
+# IDE0090: Use 'new(...)'
+dotnet_diagnostic.IDE0090.severity = none

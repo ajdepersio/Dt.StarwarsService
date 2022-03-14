@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dt.StarwarsService.Functions", "Dt.StarwarsService.Functions\Dt.StarwarsService.Functions.csproj", "{65AC22EF-244C-4F57-AFA0-207A8CC8733B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dt.StarwarsService.Client", "Dt.StarwarsService.Client\Dt.StarwarsService.Client.csproj", "{A4ECAC4A-F4D9-4007-9726-CFAE7D9523E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dt.StarwarsService.Core", "Dt.StarwarsService.Core\Dt.StarwarsService.Core.csproj", "{A4ECAC4A-F4D9-4007-9726-CFAE7D9523E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dt.StarwarsSerivce.Test", "Dt.StarwarsSerivce.Test\Dt.StarwarsSerivce.Test.csproj", "{096913A7-07B8-4A8A-844C-CEE1E37B7F32}"
 EndProject
