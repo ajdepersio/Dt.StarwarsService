@@ -57,6 +57,11 @@ namespace Dt.StarwarsService.Functions.Manufacturers
                     .Where(x => x.Manufacturers.Contains(name))
                     .ToList();
 
+                if (starships.Count == 0)
+                {
+                    return new NotFoundResult();
+                }    
+
                 return new OkObjectResult(new GetManufacturersStarshipsResponse() { Starships = starships });
             }
             catch (Exception ex)

@@ -31,11 +31,11 @@ namespace Dt.StarwarsService.Core.Services.Tests
                     }
                 };
 
-            var mock = new Mock<IEnumerable<Starship>>();
-            mock.Setup(m => m.GetEnumerator()).Returns(() => ships.GetEnumerator());
+            var getStarshipsResult = new Mock<IEnumerable<Starship>>();
+            getStarshipsResult.Setup(m => m.GetEnumerator()).Returns(() => ships.GetEnumerator());
 
             repository.Setup(x => x.GetStarships())
-                .Returns(Task.FromResult(mock.Object));
+                .Returns(Task.FromResult(getStarshipsResult.Object));
 
             var service = new StarshipService(repository.Object);
             var results = await service.GetAll().ConfigureAwait(false);
