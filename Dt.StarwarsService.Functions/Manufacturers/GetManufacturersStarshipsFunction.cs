@@ -30,13 +30,13 @@ namespace Dt.StarwarsService.Functions.Manufacturers
         }
 
         [FunctionName("GetManufacturersStarshipsFunction")]
-        [OpenApiOperation(operationId: "Run", tags: new[] { "Manufacturer" })]
+        [OpenApiOperation(operationId: "GetManufacturersStarshipsFunction", tags: new[] { "Manufacturer" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         [OpenApiParameter(name: "name", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "The Manufacturer Name")]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(GetManufacturersStarshipsResponse), Description = "List of all starships by the given manufacturer.")]
         [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.InternalServerError, Description = "Something went wrong.")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "manufacturer/{name}/starships")] HttpRequest req, string name)
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "manufacturers/{name}/starships")] HttpRequest req, string name)
         {
             try
             {

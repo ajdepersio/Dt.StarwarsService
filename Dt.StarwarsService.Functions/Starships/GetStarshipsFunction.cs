@@ -32,7 +32,7 @@ namespace Dt.StarwarsService.Functions.Starships
         }
 
         [FunctionName("GetStarshipsFunction")]
-        [OpenApiOperation(operationId: "Run", tags: new[] { "Starship" })]
+        [OpenApiOperation(operationId: "GetStarshipsFunction", tags: new[] { "Starship" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(GetStarshipsResponse), Description = "List of all Starships")]
         [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.InternalServerError, Description = "Something went wrong.")]

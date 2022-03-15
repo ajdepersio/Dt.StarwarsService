@@ -31,7 +31,7 @@ namespace Dt.StarwarsService.Functions.Manufacturers
         }
 
         [FunctionName("GetManufacturersFunction")]
-        [OpenApiOperation(operationId: "Run", tags: new[] { "Manufacturer" })]
+        [OpenApiOperation(operationId: "GetManufacturersFunction", tags: new[] { "Manufacturer" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(GetManufacturersResponse), Description = "List of all Manufacturers")]
         [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.InternalServerError, Description = "Something went wrong.")]
