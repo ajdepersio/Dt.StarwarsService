@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Dt.StarwarsService.Core.Repositories
 {
-    internal class SwapiRepository : ISwapiRepository
+    public class SwapiRepository : ISwapiRepository
     {
         private readonly SwapiSettings _settings;
         private readonly ILogger<ISwapiRepository> _logger;

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Dt.StarwarsService.Core.Factories
 {
-    internal class SwapiServiceFactory : ISwapiServiceFactory
+    public class SwapiServiceFactory : ISwapiServiceFactory
     {
         private readonly ISwapiRepository _repository;
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dt.StarwarsService.Core.Client
 {
-    internal interface ISwapiClient
+    public interface ISwapiClient
     {
         IStarshipService Starships { get; }
     }

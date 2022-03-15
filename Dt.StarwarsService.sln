@@ -7,12 +7,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dt.StarwarsService.Function
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dt.StarwarsService.Core", "Dt.StarwarsService.Core\Dt.StarwarsService.Core.csproj", "{A4ECAC4A-F4D9-4007-9726-CFAE7D9523E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dt.StarwarsService.Test", "Dt.StarwarsService.Test\Dt.StarwarsService.Test.csproj", "{096913A7-07B8-4A8A-844C-CEE1E37B7F32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dt.StarwarsService.Core.Test", "Dt.StarwarsService.Core.Test\Dt.StarwarsService.Core.Test.csproj", "{096913A7-07B8-4A8A-844C-CEE1E37B7F32}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{93E90387-2893-4571-B3F6-E198BD746F6E}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dt.StarwarsService.Functions.Test", "Dt.StarwarsService.Functions.Test\Dt.StarwarsService.Functions.Test.csproj", "{072D3FFF-85BF-4DEC-8DBF-4E1E330E93CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{096913A7-07B8-4A8A-844C-CEE1E37B7F32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{096913A7-07B8-4A8A-844C-CEE1E37B7F32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{096913A7-07B8-4A8A-844C-CEE1E37B7F32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{072D3FFF-85BF-4DEC-8DBF-4E1E330E93CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{072D3FFF-85BF-4DEC-8DBF-4E1E330E93CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{072D3FFF-85BF-4DEC-8DBF-4E1E330E93CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{072D3FFF-85BF-4DEC-8DBF-4E1E330E93CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

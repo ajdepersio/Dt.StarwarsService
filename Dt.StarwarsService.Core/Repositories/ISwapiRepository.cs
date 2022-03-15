@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Dt.StarwarsService.Core.Repositories
 {
-    internal interface ISwapiRepository
+    public interface ISwapiRepository
     {
         Task<IEnumerable<Starship>> GetStarships();
     }

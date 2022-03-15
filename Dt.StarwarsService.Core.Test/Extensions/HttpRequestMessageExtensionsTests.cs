@@ -14,7 +14,6 @@ namespace Dt.StarwarsService.Core.Extensions.Tests
         [Fact]
         public void CloneTest()
         {
-
             var request = new HttpRequestMessage(HttpMethod.Post, "https://andrew.depersio.net");
 
             var clonedRequest = request.Clone();
