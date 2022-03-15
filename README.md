@@ -10,7 +10,7 @@ If you have credentials, you can see it in action here (https://dtstarwarsservic
 * List all Starships by a given Manufacturer
 
 ## Non-Functional Requirements
-* Authentication (done via Azure Function Function Keys)
+* Authentication
 * Responds in JSON format
 * Not using 3rd party StarWars API libraries
 * Using whatever else I want
