@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Dt.StarwarsService.Core.Services
 {
+    /// <inheritdoc cref="IStarshipService"/>
     internal class StarshipService : IStarshipService
     {
         private readonly ISwapiRepository _repository;

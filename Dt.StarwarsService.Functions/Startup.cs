@@ -15,28 +15,11 @@ namespace Dt.StarwarsService.Functions
     {
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            var config = new ConfigurationBuilder()
-                // This gives you access to your application settings 
-                // in your local development environment
-                .AddJsonFile("local.settings.json", optional: true, reloadOnChange: true)
-                // This is what actually gets you the 
-                // application settings in Azure
-                .AddEnvironmentVariables()
-                .Build();
-
             builder.Services.AddLogging();
             var swapiSettings = new SwapiSettings();
-            config.GetSection("SwapiSettings").Bind(swapiSettings);
+            builder.GetContext().Configuration.GetSection("SwapiSettings").Bind(swapiSettings);
 
             builder.Services.AddSwapiClient(swapiSettings);
-
-            //builder.Services.AddHttpClient();
-
-            //builder.Services.AddSingleton<IMyService>((s) => {
-            //    return new MyService();
-            //});
-
-            //builder.Services.AddSingleton<ILoggerProvider, MyLoggerProvider>();
         }
     }
 }

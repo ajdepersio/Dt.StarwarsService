@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Dt.StarwarsService.Core.Client
 {
+    /// <inheritdoc cref="ISwapiClient"/>
     public class SwapiClient : ISwapiClient
     {
         private readonly ILogger<ISwapiClient> _logger;

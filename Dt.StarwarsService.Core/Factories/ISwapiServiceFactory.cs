@@ -7,8 +7,16 @@ using System.Threading.Tasks;
 
 namespace Dt.StarwarsService.Core.Factories
 {
+    /// <summary>
+    /// Provides factory methods for creating different services
+    /// </summary>
     public interface ISwapiServiceFactory
     {
+        /// <summary>
+        /// Creates the Starship service
+        ///     <seealso cref="IStarshipService"/>
+        /// </summary>
+        /// <returns></returns>
         IStarshipService CreateStarshipService();
     }
 }

@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Dt.StarwarsService.Core.Repositories
 {
+    /// <inheritdoc cref="ISwapiRepository"/>
     public class SwapiRepository : ISwapiRepository
     {
         private readonly SwapiSettings _settings;

@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace Dt.StarwarsService.Core.Extensions
 {
+    /// <summary>
+    /// Extensions to HttpRequestMessage
+    ///     <seealso cref="HttpRequestMessage"/>
+    /// </summary>
     public static class HttpRequestMessageExtensions
     {
+        /// <summary>
+        /// Used for recreating an HTTP Request after it has already been sent for retry logic.
+        /// </summary>
+        /// <param name="originalRequest"></param>
+        /// <returns></returns>
         public static HttpRequestMessage Clone(this HttpRequestMessage originalRequest)
         {
             var httpRequestMessage = new HttpRequestMessage(originalRequest.Method, originalRequest.RequestUri);
