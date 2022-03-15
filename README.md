@@ -2,7 +2,7 @@
 
 Programming exercise to create a "Backends for Frontends" API around StarWars API (https://swapi.dev)
 
-See it in action here (), though you'll need credentials
+If you have credentials, you can see it in action here (https://dtstarwarsservicefunctions20220314173357.azurewebsites.net/api/swagger/ui)
 
 ## Functional Requirements
 * List all Starships
