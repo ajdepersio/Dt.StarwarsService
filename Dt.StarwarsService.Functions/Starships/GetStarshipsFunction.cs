@@ -1,6 +1,12 @@
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
+using System.Web.Http;
+using Dt.StarwarsService.Core.Client;
+using Dt.StarwarsService.Core.Entities;
+using Dt.StarwarsService.Functions.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -10,39 +16,54 @@ using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace Dt.StarwarsService.Functions.Starships
 {
     public class GetStarshipsFunction
     {
+        private readonly ISwapiClient _swapiClient;
         private readonly ILogger<GetStarshipsFunction> _logger;
 
-        public GetStarshipsFunction(ILogger<GetStarshipsFunction> log)
+        public GetStarshipsFunction(ISwapiClient swapiClient, ILogger<GetStarshipsFunction> log)
         {
+            _swapiClient = swapiClient;
             _logger = log;
         }
 
         [FunctionName("GetStarshipsFunction")]
-        [OpenApiOperation(operationId: "Run", tags: new[] { "name" })]
+        [OpenApiOperation(operationId: "Run", tags: new[] { "Starship" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiParameter(name: "name", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "The **Name** parameter")]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(GetStarshipsResponse), Description = "List of all Starships")]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.InternalServerError, Description = "Something went wrong.")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req)
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "starships")] HttpRequest req)
         {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
+            try
+            {
+                _logger.LogInformation("Received Request for GetStarshipsFunction");
 
-            string name = req.Query["name"];
+                var starshipsResults = await _swapiClient.Starships.GetAll().ConfigureAwait(false);
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+                if (!starshipsResults.Success)
+                {
+                    _logger.LogError(starshipsResults.Exception, starshipsResults.Exception.Message);
+                    return new InternalServerErrorResult();
+                }
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+                _logger.LogInformation("Successfully Processed Request for GetStarshipsFunction");
 
-            return new OkObjectResult(responseMessage);
+                var starships = starshipsResults.Starships
+                    .Select(x => new StarshipSimple(x))
+                    .ToList();
+
+                return new OkObjectResult(new GetStarshipsResponse() { Starships = starships });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return new InternalServerErrorResult();
+            }
         }
     }
 }

@@ -1,6 +1,11 @@
+using System;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using System.Web.Http;
+using Dt.StarwarsService.Core.Client;
+using Dt.StarwarsService.Functions.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -15,34 +20,50 @@ namespace Dt.StarwarsService.Functions.Manufacturers
 {
     public class GetManufacturersStarshipsFunction
     {
+        private readonly ISwapiClient _swapiClient;
         private readonly ILogger<GetManufacturersStarshipsFunction> _logger;
 
-        public GetManufacturersStarshipsFunction(ILogger<GetManufacturersStarshipsFunction> log)
+        public GetManufacturersStarshipsFunction(ISwapiClient swapiClient, ILogger<GetManufacturersStarshipsFunction> log)
         {
+            _swapiClient = swapiClient;
             _logger = log;
         }
 
         [FunctionName("GetManufacturersStarshipsFunction")]
-        [OpenApiOperation(operationId: "Run", tags: new[] { "name" })]
+        [OpenApiOperation(operationId: "Run", tags: new[] { "Manufacturer" })]
         [OpenApiSecurity("function_key", SecuritySchemeType.ApiKey, Name = "code", In = OpenApiSecurityLocationType.Query)]
-        [OpenApiParameter(name: "name", In = ParameterLocation.Query, Required = true, Type = typeof(string), Description = "The **Name** parameter")]
-        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "text/plain", bodyType: typeof(string), Description = "The OK response")]
+        [OpenApiParameter(name: "name", In = ParameterLocation.Path, Required = true, Type = typeof(string), Description = "The Manufacturer Name")]
+        [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, contentType: "application/json", bodyType: typeof(GetManufacturersStarshipsResponse), Description = "List of all starships by the given manufacturer.")]
+        [OpenApiResponseWithoutBody(statusCode: HttpStatusCode.InternalServerError, Description = "Something went wrong.")]
         public async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req)
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "manufacturer/{name}/starships")] HttpRequest req, string name)
         {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
+            try
+            {
+                _logger.LogInformation($"Received Request for GetManufacturersStarshipsFunction [name: {name}]");
 
-            string name = req.Query["name"];
+                var starshipsResults = await _swapiClient.Starships.GetAll().ConfigureAwait(false);
 
-            string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+                if (!starshipsResults.Success)
+                {
+                    _logger.LogError(starshipsResults.Exception, starshipsResults.Exception.Message);
+                    return new InternalServerErrorResult();
+                }
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+                _logger.LogInformation($"Successfully Processed Request for GetManufacturersStarshipsFunction [name: {name}]");
 
-            return new OkObjectResult(responseMessage);
+                var starships = starshipsResults.Starships
+                    .Select(x => new StarshipSimple(x))
+                    .Where(x => x.Manufacturers.Contains(name))
+                    .ToList();
+
+                return new OkObjectResult(new GetManufacturersStarshipsResponse() { Starships = starships });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                return new InternalServerErrorResult();
+            }
         }
     }
 }
