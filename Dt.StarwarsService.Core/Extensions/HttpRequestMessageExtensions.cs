@@ -16,11 +16,10 @@ namespace Dt.StarwarsService.Core.Extensions
         /// Used for recreating an HTTP Request after it has already been sent for retry logic.
         /// </summary>
         /// <param name="originalRequest"></param>
-        /// <returns></returns>
         public static HttpRequestMessage Clone(this HttpRequestMessage originalRequest)
         {
             var httpRequestMessage = new HttpRequestMessage(originalRequest.Method, originalRequest.RequestUri);
-            
+
             foreach (var header in originalRequest.Headers)
             {
                 httpRequestMessage.Headers.TryAddWithoutValidation(header.Key, header.Value);

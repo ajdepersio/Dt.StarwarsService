@@ -15,7 +15,6 @@ namespace Dt.StarwarsService.Core.Services
         /// <summary>
         /// Retrieves all starships
         /// </summary>
-        /// <returns></returns>
         Task<(bool Success, IEnumerable<Starship>? Starships, Exception? Exception)> GetAll();
     }
 }

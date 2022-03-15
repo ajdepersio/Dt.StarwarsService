@@ -16,7 +16,6 @@ namespace Dt.StarwarsService.Core.Factories
         /// Creates the Starship service
         ///     <seealso cref="IStarshipService"/>
         /// </summary>
-        /// <returns></returns>
         IStarshipService CreateStarshipService();
     }
 }

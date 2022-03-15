@@ -18,7 +18,6 @@ namespace Dt.StarwarsService.Core.Client.DependencyInjection
         /// </summary>
         /// <param name="services"></param>
         /// <param name="settings"></param>
-        /// <returns></returns>
         public static IServiceCollection AddSwapiClient(this IServiceCollection services, SwapiSettings settings)
         {
             services.AddSingleton(settings);

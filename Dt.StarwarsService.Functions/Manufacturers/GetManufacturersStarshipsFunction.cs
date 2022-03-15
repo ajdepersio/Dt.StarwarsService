@@ -60,7 +60,7 @@ namespace Dt.StarwarsService.Functions.Manufacturers
                 if (starships.Count == 0)
                 {
                     return new NotFoundResult();
-                }    
+                }
 
                 return new OkObjectResult(new GetManufacturersStarshipsResponse() { Starships = starships });
             }
@@ -72,4 +72,3 @@ namespace Dt.StarwarsService.Functions.Manufacturers
         }
     }
 }
-

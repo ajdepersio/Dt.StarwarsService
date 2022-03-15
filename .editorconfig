@@ -196,7 +196,7 @@ dotnet_diagnostic.RCS1161.severity = none
 
 dotnet_diagnostic.RCS1162.severity = warning
 
-dotnet_diagnostic.RCS1163.severity = warning
+dotnet_diagnostic.RCS1163.severity = none
 
 dotnet_diagnostic.RCS1164.severity = warning
 
@@ -249,3 +249,6 @@ dotnet_diagnostic.RCS1248i.severity = warning
 # IDE0090: Use 'new(...)'
 dotnet_diagnostic.IDE0090.severity = none
 dotnet_diagnostic.CA2254.severity=silent
+
+# IDE0060: Remove unused parameter
+dotnet_diagnostic.IDE0060.severity = none

@@ -68,4 +68,3 @@ namespace Dt.StarwarsService.Functions.Manufacturers
         }
     }
 }
-

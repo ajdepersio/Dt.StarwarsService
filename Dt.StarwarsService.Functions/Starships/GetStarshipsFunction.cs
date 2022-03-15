@@ -67,4 +67,3 @@ namespace Dt.StarwarsService.Functions.Starships
         }
     }
 }
-

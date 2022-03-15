@@ -26,7 +26,6 @@ namespace Dt.StarwarsService.Functions.Test.Helpers
                             StarshipClass = "Big",
                             CargoCapacity = "a lot",
                             Manufacturer = "Jim Bob's Big Ships"
-
                         },
                         new Starship()
                         {

@@ -39,7 +39,7 @@ namespace Dt.StarwarsService.Core.Services.Tests
 
             var service = new StarshipService(repository.Object);
             var results = await service.GetAll().ConfigureAwait(false);
-            
+
             Assert.True(results.Success);
             Assert.Equal(2, results.Starships?.Count());
             Assert.Equal("The Biggin'", results.Starships?.First().Name);

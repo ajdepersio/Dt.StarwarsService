@@ -15,7 +15,6 @@ namespace Dt.StarwarsService.Core.Repositories
         /// <summary>
         /// Retrieves all starships
         /// </summary>
-        /// <returns></returns>
         Task<IEnumerable<Starship>> GetStarships();
     }
 }
