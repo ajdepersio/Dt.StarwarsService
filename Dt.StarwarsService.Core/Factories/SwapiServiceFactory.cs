@@ -12,6 +12,11 @@ namespace Dt.StarwarsService.Core.Factories
     {
         private readonly ISwapiRepository _repository;
 
+        public SwapiServiceFactory(ISwapiRepository repository)
+        {
+            _repository = repository;
+        }
+
         public IStarshipService CreateStarshipService()
         {
             return new StarshipService(_repository);

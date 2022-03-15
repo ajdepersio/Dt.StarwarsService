@@ -11,6 +11,7 @@ namespace Dt.StarwarsService.Core.Extensions
         public static HttpRequestMessage Clone(this HttpRequestMessage originalRequest)
         {
             var httpRequestMessage = new HttpRequestMessage(originalRequest.Method, originalRequest.RequestUri);
+            
             foreach (var header in originalRequest.Headers)
             {
                 httpRequestMessage.Headers.TryAddWithoutValidation(header.Key, header.Value);

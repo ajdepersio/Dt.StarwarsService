@@ -3,6 +3,7 @@ using Dt.StarwarsService.Core.Entities;
 using Dt.StarwarsService.Core.Extensions;
 using Dt.StarwarsService.Core.Models;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Polly;
 using Polly.Retry;
 using System;
@@ -20,10 +21,10 @@ namespace Dt.StarwarsService.Core.Repositories
         private readonly HttpClient _httpClient;
         private readonly string _starshipsRoute;
 
-        public SwapiRepository(SwapiSettings settings, ILogger<ISwapiRepository> logger)
+        public SwapiRepository(SwapiSettings settings, ILogger<ISwapiRepository>? logger = default)
         {
             _settings = settings;
-            _logger = logger;
+            _logger = logger ?? new NullLoggerFactory().CreateLogger<ISwapiRepository>();
             _httpClient = new HttpClient();
             _starshipsRoute = $"{_settings.BaseUrl}/starships";
         }

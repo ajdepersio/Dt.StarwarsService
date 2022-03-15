@@ -248,3 +248,4 @@ dotnet_diagnostic.RCS1248i.severity = warning
 
 # IDE0090: Use 'new(...)'
 dotnet_diagnostic.IDE0090.severity = none
+dotnet_diagnostic.CA2254.severity=silent

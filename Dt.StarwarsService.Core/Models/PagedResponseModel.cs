@@ -27,6 +27,11 @@ namespace Dt.StarwarsService.Core.Models
             }
 
             var response = await JsonSerializer.DeserializeAsync<PagedResponseModel<T>>(jsonStream, _serializerOptions).ConfigureAwait(false);
+            if (response == null)
+            {
+                throw new InvalidCastException();
+            }
+
             return response;
         }
     }
